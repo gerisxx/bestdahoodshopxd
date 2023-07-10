@@ -1,0 +1,366 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Alt .gg/dhcstore", HidePremium = true, SaveConfig = true, ConfigFolder = "lol", IntroText = ".gg/xdhcshop", IntroIcon = "rbxassetid://9963440080"})
+
+local DropTab = script.Parent -- Assuming this code is inside a GUI element
+
+local FPS = 60 -- default FPS value
+
+local toggleValue = false -- Variable to store the toggle state
+
+local function DropMoneyRepeatedly()
+    while toggleValue do
+        game.ReplicatedStorage.MainEvent:FireServer("DropMoney", "10000")
+        wait(1) -- Wait for 1 second before repeating the action
+    end
+end
+
+local function OnToggleToggled(isEnabled)
+    toggleValue = isEnabled
+
+    if toggleValue then
+        DropMoneyRepeatedly()
+    end
+end
+
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://9963440080",
+	PremiumOnly = false
+})
+
+local SaverTab = Window:MakeTab({
+	Name = "Cpu Saver",
+	Icon = "rbxassetid://9963440080",
+	PremiumOnly = false
+})
+local TeleportTab = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://9963440080",
+	PremiumOnly = false
+})
+
+local ATMTab = Window:MakeTab({
+	Name = "Atm/Bounty",
+	Icon = "rbxassetid://9963440080",
+	PremiumOnly = false
+})
+
+local miscTab = Window:MakeTab({
+	Name = "misc",
+	Icon = "rbxassetid://9963440080",
+	PremiumOnly = false
+})
+
+
+MainTab:AddToggle({
+    Name = "Drop DHC",
+    Default = toggleValue,
+    Callback = OnToggleToggled
+})
+
+SaverTab:AddToggle({
+	Name = "3D Rendering",
+	Default = false, -- Inverted default value
+	Callback = function(Value)
+		game:GetService("RunService"):Set3dRenderingEnabled(not Value) -- Invert the value
+	end
+})
+
+SaverTab:AddTextbox({
+	Name = "Set Fps Caps",
+	Default = tostring(FPS),
+	TextDisappear = true,
+	Callback = function(Value)
+		local newFPS = tonumber(Value)
+		if newFPS and newFPS > 0 then
+			setfpscap(newFPS) -- set the FPS cap to the new value
+			print("FPS cap set to: " .. newFPS)
+		else
+			print("Invalid FPS value: " .. Value)
+		end
+	end
+})
+
+
+
+-- teleport 
+
+TeleportTab:AddButton({
+	Name = "Alt 1",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-826, -40, -617)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 2",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-839, -40, -617)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 3",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-852, -40, -617)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 4",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-865, -40, -617)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 5",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-878, -40, -617)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 6",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-891, -40, -617)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 7",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-904, -40, -617)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 8",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-917, -40, -617)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 9",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-826, -40, -602)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 10",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-839, -40, -602)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 11",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-852, -40, -602)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 12",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-865, -40, -602)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 13",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-878, -40, -602)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 14",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-891, -40, -602)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 15",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-904, -40, -602)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 16",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-917, -40, -602)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 17",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-826, -40, -587)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 18",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-839, -40, -587)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 19",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-852, -40, -587)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 20",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-865, -40, -587)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 21",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-878, -40, -587)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 22",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-891, -40, -587)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 23",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-904, -40, -587)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 24",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-917, -40, -587)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 25",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-826, -40, -572)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 26",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-839, -40, -572)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 27",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-852, -40, -572)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 28",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-865, -40, -572)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 29",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-878, -40, -572)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 30",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-891, -40, -572)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 31",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-904, -40, -572)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 32",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-917, -40, -572)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 33",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-826, -40, -557)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 34",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-839, -40, -557)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 35",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-852, -40, -557)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 36",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-865, -40, -557)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 37",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-878, -40, -557)
+	end
+})
+
+TeleportTab:AddButton({
+	Name = "Alt 38",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-891, -40, -557)
+	end
+})
+
+OrionLib:Init()
+
+
+
+
+
+
+
+
+
+
+
